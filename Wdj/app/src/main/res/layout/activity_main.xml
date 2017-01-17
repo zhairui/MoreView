@@ -10,7 +10,7 @@
 
     <com.wdj.MoreView
         android:id="@+id/moreview"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:color="@color/colorAccent"
         app:text="more>>"

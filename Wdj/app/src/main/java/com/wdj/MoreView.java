@@ -1,4 +1,4 @@
-package com.wdj;
+﻿package com.wdj;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -61,6 +61,22 @@ public class MoreView extends View{
         mTextPaintmore.setTextSize(mTextSize);
         mTextPaintmore.setColor(mTextColor);
         ScreenWidth=ScreenUtils.getScreenWidth(context);
+    }
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        int widthSize=MeasureSpec.getSize(widthMeasureSpec);
+        int heightSize=MeasureSpec.getSize(heightMeasureSpec);
+        int widthMode=MeasureSpec.getMode(widthMeasureSpec);
+        int heightMode=MeasureSpec.getMode(heightMeasureSpec);
+
+        int height=0;
+        if(heightMode==MeasureSpec.EXACTLY){
+            height=heightSize;
+        }else if(heightMode==MeasureSpec.AT_MOST){
+            height=800;
+        }
+        setMeasuredDimension(widthSize,height);
     }
     public void setData(String message){
         normalString=message;
